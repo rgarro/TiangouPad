@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TiangouPad</title>
+	<script type="text/javascript" src="lib/createjs-2014.12.12.min.js"></script>
+
+	<script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/tp.js"></script>
+</head>
+<body>
+<canvas id="canvas" height="800" width="800" style="border: black solid 1px">
+
+</canvas>
+<script type="text/javascript">
+var stage;
+var queue;
+
+function setupStage() {
+	stage = new createjs.Stage(document.getElementById('canvas'));
+	createjs.Ticker.setFPS(60);
+	createjs.Ticker.addEventListener("tick", function(){
+		stage.update();
+	});
+}
+
+
+
+$(document).ready(function(){
+	setupStage();
+	/*queue = new createjs.LoadQueue();
+	queue.installPlugin(createjs.Sound);
+	queue.addEventListener("complete", setupStage); queue.loadManifest(
+		[
+			{id:"woosh", src:"sounds/woosh.mp3"},
+			{id:"chime", src:"sounds/chime.mp3"}
+		]);*/
+});
+</script>
+</body>
+</html>
